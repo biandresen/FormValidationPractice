@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation Practice</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-header-field">
+        <h1 class="form-header">Validation Form</h1>
+        <h2 class="main-validation-message"></h2>
+      </div>
+
+      <!-- novalidate - overrides checkValidity and reportValidity -->
+      <form novalidate action="#" method="" id="form">
+        <p class="input-container">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
+            enterkeyhint="next"
+            autocomplete="off"
+            placeholder="Enter your email"
+          />
+          <span class="error-message email-error"></span>
+        </p>
+        <p class="input-container">
+          <label for="country">Country</label>
+          <input
+            type="text"
+            name="country"
+            id="country"
+            enterkeyhint="next"
+            autocomplete="off"
+            placeholder="Enter your country"
+          />
+          <span class="error-message country-error"></span>
+        </p>
+        <p class="input-container">
+          <label for="zip">Zip Code</label>
+          <input
+            type="text"
+            inputmode="numeric"
+            name="zip"
+            id="zip"
+            enterkeyhint="next"
+            autocomplete="off"
+            placeholder="Enter your zip code"
+          />
+          <span class="error-message zip-error"></span>
+        </p>
+        <p class="input-container">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            enterkeyhint="send"
+            autocomplete="off"
+            placeholder="Enter password"
+          />
+          <span class="error-message password-error"></span>
+        </p>
+        <p class="input-container">
+          <label for="confirm-password">Confirm Password</label>
+          <input
+            type="password"
+            name="confirm-password"
+            id="confirm-password"
+            enterkeyhint="send"
+            autocomplete="off"
+            placeholder="Enter password again"
+          />
+          <span class="error-message confirm-password-error"></span>
+        </p>
+        <p>
+          <button type="submit" id="submit-button">Register</button>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>

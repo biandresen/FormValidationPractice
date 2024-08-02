@@ -27,6 +27,9 @@ email.addEventListener("input", validateEmail);
 country.addEventListener("input", validateCountry);
 zip.addEventListener("input", validateZip);
 password.addEventListener("input", validatePassword);
+password.addEventListener("input", handlePasswordRequirements);
+password.addEventListener("focus", showRequirements);
+password.addEventListener("blur", showRequirements);
 confirmPassword.addEventListener("input", validateConfirmPassword);
 
 function validateEmail() {
@@ -81,6 +84,48 @@ function validateZip() {
     zipError.textContent = errorMessage;
   }
   return isValid;
+}
+
+function handlePasswordRequirements() {
+  const uppercaseElement = document.querySelector(".uppercase");
+  const lowercaseElement = document.querySelector(".lowercase");
+  const numberElement = document.querySelector(".number");
+  const signElement = document.querySelector(".sign");
+  const lengthElement = document.querySelector(".length");
+
+  const regexUppercase = /[A-Z]/;
+  const regexLowercase = /[a-z]/;
+  const regexNumber = /[0-9]/;
+  const regexSign = /[^a-zA-Z0-9]/;
+  const regexLength = /[A-z]{8,}|[0-9]{8,}|[^a-zA-Z0-9]{8,}/;
+
+  const input = password.value.trim("");
+
+  const uppercaseValid = regexUppercase.test(input);
+  const lowercaseValid = regexLowercase.test(input);
+  const numberValid = regexNumber.test(input);
+  const signValid = regexSign.test(input);
+  const lengthValid = regexLength.test(input);
+
+  if (uppercaseValid) uppercaseElement.classList.add("fulfilled");
+  else uppercaseElement.classList.remove("fulfilled");
+
+  if (lowercaseValid) lowercaseElement.classList.add("fulfilled");
+  else lowercaseElement.classList.remove("fulfilled");
+
+  if (numberValid) numberElement.classList.add("fulfilled");
+  else numberElement.classList.remove("fulfilled");
+
+  if (signValid) signElement.classList.add("fulfilled");
+  else signElement.classList.remove("fulfilled");
+
+  if (lengthValid) lengthElement.classList.add("fulfilled");
+  else lengthElement.classList.remove("fulfilled");
+}
+
+function showRequirements() {
+  const passwordRequirementMessages = document.querySelector(".password-requirements");
+  passwordRequirementMessages.classList.toggle("show");
 }
 
 function validatePassword() {

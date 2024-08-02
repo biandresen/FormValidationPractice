@@ -19,7 +19,7 @@
         <p class="input-container">
           <label for="email">Email</label>
           <input
-            type="text"
+            type="email"
             name="email"
             id="email"
             enterkeyhint="next"
@@ -64,6 +64,13 @@
             placeholder="Enter password"
           />
           <span class="error-message password-error"></span>
+          <span class="password-requirements">
+            <span class="requirement uppercase">Uppercase letter</span>
+            <span class="requirement lowercase">Lowercase letter</span>
+            <span class="requirement number">Number</span>
+            <span class="requirement sign">Sign</span>
+            <span class="requirement length">Min. length: 8</span>
+          </span>
         </p>
         <p class="input-container">
           <label for="confirm-password">Confirm Password</label>

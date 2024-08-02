@@ -97,7 +97,7 @@ function handlePasswordRequirements() {
   const regexLowercase = /[a-z]/;
   const regexNumber = /[0-9]/;
   const regexSign = /[^a-zA-Z0-9]/;
-  const regexLength = /[A-z]{8,}|[0-9]{8,}|[^a-zA-Z0-9]{8,}/;
+  const regexLength = /[A-z]{8,}|[0-9]{8,}|[\W_][^\s]{8,}/;
 
   const input = password.value.trim("");
 
